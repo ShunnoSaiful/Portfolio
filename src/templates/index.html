@@ -12,7 +12,9 @@
                 <div class="row">
                     <nav class="navbar navbar-expand-lg sip-nav nav-btn">
                         <a class="navbar-brand" href="#">
-                            <img src="assets/images/logo.png" alt="" class="logo">
+                            {% for home in home %}
+                            <img src="{{home.logo.url}}" alt="" class="logo">
+                            {% endfor %}
                             <!-- <h2>Maha</h2> -->
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,7 +71,7 @@
                                 
                                 <ul>
                                     <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s"><i class="fa fa-envelope"></i><a href="mailto:">{{home.email}}</a></li>
-                                    <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s"><i class="fa fa-phone"></i><a href="callto:">+88 {{home.contact_no}}</a></li>
+                                    <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s"><i class="fa fa-phone"></i><a href="callto:">+880 {{home.contact_no}}</a></li>
                                     <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s"><i class="fa fa-map-marker"></i><address>{{home.address}}</address></li>
                                 </ul>
                                 
@@ -94,30 +96,23 @@
         </section>   
         {% endfor %}       
          <!--    ********ABOUT********    -->
-
+        {% for about in about %}
         <section class="sip-about" id="sip-about">
             <div class="container">
                 <div class="row section-separator">
                     <div class="col-sm-12 col-md-6">
                         <div class="sip-about-img shadow-2 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">
-                            <img src="assets/images/ab-img.png" alt="" class="img-fluid">
+                            <img src="{{about.image.url}}" alt="" class="img-fluid">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <div class="sip-about-inner">
-                            <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">About Me</h2>
-                            <p class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Hello, I’m a Patrick, web-developer based on Paris. 
-                            I have rich experience in web site design & building 
-                            and customization. Also I am good at</p>
+                            <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">{{about.title}}</h2>
+                            <p class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{about.content}}</p>
                             <div class="sip-about-tag wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                                <ul>
-                                    <li><span>php</span></li>
-                                    <li><span>html</span></li>
-                                    <li><span>css</span></li>
-                                    <li><span>php</span></li>
-                                    <li><span>wordpress</span></li>
-                                    <li><span>React</span></li>
-                                    <li><span>Javascript</span></li>
+                                <ul>{% for tag in tag %}
+                                    <li><span>{{tag}}</span></li>
+                                    {% endfor %} 
                                 </ul>
                             </div>
                             <a href="#" class="btn btn-fill wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">Downlaod CV <i class="fa fa-download"></i></a>
@@ -126,51 +121,30 @@
                 </div>
             </div>
         </section>
-        
+        {% endfor %}   
          <!--    ********SERVICE********    -->
-
+        
         <section class="sip-service">
             <div class="container">
                 <div class="row section-separator">
                     <div class="col-sm-12 text-center section-title wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
                         <h3>What I do</h3>
                     </div>
+                    {% for about in about2 %}
                     <div class="col-sm-4">
                         <div class="sip-service-item shadow-1 dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                            <i class="fa fa-bullseye purple-color"></i>
-                            <h3>UI Design</h3>
+                            <i class="fas fa-home"></i>
+                            <h3>{{about.title}}</h3>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-                                magna aliquam erat volutpat.
+                                {{about.content}}
                             </p>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="sip-service-item shadow-1 dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">
-                            <i class="fa fa-code iron-color"></i>
-                            <h3>Web Development</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-                                magna aliquam erat volutpat.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="sip-service-item shadow-1 dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">
-                            <i class="fa fa-object-ungroup sky-color"></i>
-                            <h3>App Development</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-                                magna aliquam erat volutpat.
-                            </p>
-                        </div>
-                    </div>
+                    {% endfor %} 
                 </div>
             </div>
-        </section>       
+        </section> 
+              
         
          <!--    ********SKILLS********    -->
 

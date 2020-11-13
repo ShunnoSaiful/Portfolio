@@ -1,5 +1,5 @@
 from django.shortcuts import render,  get_object_or_404, redirect
-from .models import Home, SocialLink, About, TechnicalSkill, ProfessionalSkill, Education, Work, RecentPortfolio ,ClientReviews
+from .models import Home, SocialLink, Tag, About, TechnicalSkill, ProfessionalSkill, Education, Work, RecentPortfolio ,ClientReviews
 from blog.models import BlogPost
 
 
@@ -7,9 +7,11 @@ from blog.models import BlogPost
 
 def home(request):
 	home = Home.objects.all()
-	print(home)
 	social_link = SocialLink.objects.all()
-	about = About.objects.all()
+	about = About.objects.all()[:1]
+	about2 = About.objects.all()[1:4]
+	print(about2)
+	tag = Tag.objects.all()
 	technical_skill = TechnicalSkill.objects.all()
 	professional_skill = ProfessionalSkill.objects.all()
 	education = Education.objects.all()
@@ -21,6 +23,8 @@ def home(request):
 		"home": home,
 		"social_link": social_link,
 		"about": about,
+		"about2": about2,
+		"tag": tag,
 		"technical_skill": technical_skill,
 		"professional_skill": professional_skill,
 		"education": education,

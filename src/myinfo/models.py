@@ -21,7 +21,7 @@ class Home(models.Model):
     myname      = models.CharField(max_length=120)
     my_title    = models.CharField(max_length=120, null=True, blank=True)
     email       = models.EmailField(null=True, blank=True)
-    contact_no  = models.IntegerField(null=True, blank=True)
+    contact_no  = models.CharField(max_length=120, null=True, blank=True)
     address     = models.CharField(max_length=120, null=True, blank=True)
     social_link = models.URLField(null=True, blank=True)
 
@@ -46,17 +46,25 @@ class About(models.Model):
     title        = models.CharField(max_length=120, null=True, blank=True)
     content      = models.TextField(null=True, blank=True)
     tag          = models.CharField(max_length=120, null=True, blank=True)
-    image        = models.ImageField(upload_to=upload_location, null=True, blank=True)
-    resume       = models.FileField(upload_to=upload_location, null=True, blank=True)
+    image        = models.ImageField(upload_to='about/', null=True, blank=True)
+    icon         = models.CharField(max_length=120, null=True, blank=True)
+    resume       = models.FileField(upload_to='resume/', null=True, blank=True)
 
 
     def __str__(self):
         return str(self.title)
 
 
+class Tag(models.Model):
+    about = models.ForeignKey(About, related_name='tags', on_delete=models.CASCADE)
+    tag   = models.CharField(max_length=120, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.tag)
+
 
 class TechnicalSkill(models.Model):
-    skill      = models.ImageField(upload_to=upload_location, null=True, blank=True)
+    skill      = models.CharField(max_length=120, null=True, blank=True)
     percentage = models.DecimalField(max_digits=2, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
@@ -64,7 +72,7 @@ class TechnicalSkill(models.Model):
 
 
 class ProfessionalSkill(models.Model):
-    skill      = models.ImageField(upload_to=upload_location, null=True, blank=True)
+    skill      = models.CharField(max_length=120, null=True, blank=True)
     percentage = models.DecimalField(max_digits=2, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
@@ -103,7 +111,7 @@ class Work(models.Model):
 class RecentPortfolio(models.Model):
     title          = models.CharField(max_length=120, null=True, blank=True)
     content        = models.TextField(null=True, blank=True)
-    image          = models.ImageField(upload_to=upload_location, null=True, blank=True)
+    image          = models.ImageField(upload_to='portfolio/', null=True, blank=True)
     tag            = models.CharField(max_length=120, null=True, blank=True)
     portfolio_link = models.URLField(null=True, blank=True)
 
@@ -116,7 +124,7 @@ class RecentPortfolio(models.Model):
 class ClientReviews(models.Model):
     review  = models.CharField(max_length=120, null=True, blank=True)
     name    = models.CharField(max_length=120, null=True, blank=True)
-    image   = models.ImageField(upload_to=upload_location, null=True, blank=True)
+    image   = models.ImageField(upload_to='Client/', null=True, blank=True)
     company = models.CharField(max_length=120, null=True, blank=True)
 
 
