@@ -1682,7 +1682,10 @@ li .fa {
 .sip-skills .sip-professional-skill {
   padding-right: 60px;
 }
-
+.pskill {
+    width: 38%;
+    margin-bottom: 10px;
+}
 .sip-skills .sip-professional-skill h3 {
   font-size: 30px;
   line-height: 40px;

@@ -65,7 +65,7 @@ class Tag(models.Model):
 
 class TechnicalSkill(models.Model):
     skill      = models.CharField(max_length=120, null=True, blank=True)
-    percentage = models.DecimalField(max_digits=2, decimal_places=2, null=True, blank=True)
+    percentage = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
         return str(self.skill)
@@ -73,8 +73,7 @@ class TechnicalSkill(models.Model):
 
 class ProfessionalSkill(models.Model):
     skill      = models.CharField(max_length=120, null=True, blank=True)
-    percentage = models.DecimalField(max_digits=2, decimal_places=2, null=True, blank=True)
-
+    image      = models.FileField(upload_to='skill/', null=True, blank=True)
     def __str__(self):
         return str(self.skill)
 
@@ -83,8 +82,8 @@ class ProfessionalSkill(models.Model):
 class Education(models.Model):
     degree    = models.CharField(max_length=120, null=True, blank=True)
     institute = models.CharField(max_length=120, null=True, blank=True)
-    year1     = models.DateField(auto_now=True, auto_now_add=False)
-    year2     = models.DateField(auto_now=True, auto_now_add=False)
+    year1     = models.DateField(auto_now=False, auto_now_add=False)
+    year2     = models.DateField(auto_now=False, auto_now_add=False, null=True, blank=True)
     dept      = models.CharField(max_length=120, null=True, blank=True)
 
 
@@ -96,8 +95,8 @@ class Education(models.Model):
 class Work(models.Model):
     position        = models.CharField(max_length=120, null=True, blank=True)
     institute       = models.CharField(max_length=120, null=True, blank=True)
-    year1           = models.DateField(auto_now=True, auto_now_add=False)
-    year2           = models.DateField(auto_now=True, auto_now_add=False)
+    year1           = models.DateField(auto_now=False, auto_now_add=False)
+    year2           = models.DateField(auto_now=False, auto_now_add=False, null=True, blank=True)
     responsibility1 = models.CharField(max_length=120, null=True, blank=True)
     responsibility2 = models.CharField(max_length=120, null=True, blank=True)
     responsibility3 = models.CharField(max_length=120, null=True, blank=True)
@@ -112,7 +111,7 @@ class RecentPortfolio(models.Model):
     title          = models.CharField(max_length=120, null=True, blank=True)
     content        = models.TextField(null=True, blank=True)
     image          = models.ImageField(upload_to='portfolio/', null=True, blank=True)
-    tag            = models.CharField(max_length=120, null=True, blank=True)
+    rptag          = models.CharField(max_length=120, null=True, blank=True)
     portfolio_link = models.URLField(null=True, blank=True)
 
 
@@ -120,9 +119,17 @@ class RecentPortfolio(models.Model):
         return str(self.title)
 
 
+class RPTag(models.Model):
+    recentportfolio = models.ForeignKey(RecentPortfolio, related_name='rptags', on_delete=models.CASCADE)
+    tag             = models.CharField(max_length=120, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.tag)
+
+
 
 class ClientReviews(models.Model):
-    review  = models.CharField(max_length=120, null=True, blank=True)
+    review  = models.TextField(null=True, blank=True)
     name    = models.CharField(max_length=120, null=True, blank=True)
     image   = models.ImageField(upload_to='Client/', null=True, blank=True)
     company = models.CharField(max_length=120, null=True, blank=True)

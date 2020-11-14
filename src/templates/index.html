@@ -42,7 +42,7 @@
                                     <a class="nav-link" href="#sip-pricing">Pricing</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#sip-blog">Blog</a>
+                                    <a class="nav-link" href="#sip-testimonial">Reviews</a>
                                 </li>
                                 <li class="nav-item">
                                    <a class="nav-link" href="#sip-contact">Contact</a>
@@ -133,7 +133,7 @@
                     {% for about in about2 %}
                     <div class="col-sm-4">
                         <div class="sip-service-item shadow-1 dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                            <i class="fas fa-home"></i>
+                            <i class="{{about.icon }} iron-color"></i>
                             <h3>{{about.title}}</h3>
                             <p>
                                 {{about.content}}
@@ -159,61 +159,19 @@
                             <div class="sip-professional-skill wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.3s">
                                 <h3>Technical Skills</h3>
                                 <div class="each-skills">
+                                    {% for ts in technical_skill %}
                                     <div class="candidatos">
                                         <div class="parcial">
                                             <div class="info">
-                                                <div class="nome">Javascript</div>
-                                                <div class="percentagem-num">86%</div>
+                                                <div class="nome">{{ts.skill}}</div>
+                                                <div class="percentagem-num">{{ ts.percentage|floatformat:"0" }}%</div>
                                             </div>
                                             <div class="progressBar">
-                                                <div class="percentagem" style="width: 86%;"></div>
+                                                <div class="percentagem" style="width: {{ts.percentage}}%;"></div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="candidatos">
-                                        <div class="parcial">
-                                            <div class="info">
-                                                <div class="nome">Java</div>
-                                                <div class="percentagem-num">46%</div>
-                                            </div>
-                                            <div class="progressBar">
-                                                <div class="percentagem" style="width: 46%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="candidatos">
-                                        <div class="parcial">
-                                            <div class="info">
-                                                <div class="nome">Python</div>
-                                                <div class="percentagem-num">38%</div>
-                                            </div>
-                                            <div class="progressBar">
-                                                <div class="percentagem" style="width: 38%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="candidatos">
-                                        <div class="parcial">
-                                            <div class="info">
-                                                <div class="nome">PHP</div>
-                                                <div class="percentagem-num">17%</div>
-                                            </div>
-                                            <div class="progressBar">
-                                                <div class="percentagem" style="width: 17%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>                                    
-                                    <div class="candidatos">
-                                        <div class="parcial">
-                                            <div class="info">
-                                                <div class="nome">PHP</div>
-                                                <div class="percentagem-num">17%</div>
-                                            </div>
-                                            <div class="progressBar">
-                                                <div class="percentagem" style="width: 17%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -222,22 +180,14 @@
                         <div class="sip-professional-skills wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.9s">
                             <h3>Professional Skills</h3>
                             <ul class="sip-professional-progress" >
+                                {% for ps in professional_skill %}
                                 <li>
-                                    <div class="sip-progress sip-progress-circle" data-progress="95"></div>
-                                    <div class="pr-skill-name">Communication</div>
+                                    <div>
+                                        <img class="pskill iron-color" src="{{ps.image.url}}" alt="">
+                                    </div>
+                                    <div class="pr-skill-name">{{ps.skill}}</div>
                                 </li>
-                                <li>
-                                    <div class="sip-progress sip-progress-circle" data-progress="55"></div> 
-                                    <div class="pr-skill-name">Team Work</div>
-                                </li>
-                                <li>
-                                    <div class="sip-progress sip-progress-circle" data-progress="86"></div>
-                                    <div class="pr-skill-name">Project Management</div>
-                                </li> 
-                                <li>
-                                    <div class="sip-progress sip-progress-circle" data-progress="60"></div>
-                                    <div class="pr-skill-name">Creativity</div>
-                                </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
@@ -254,28 +204,15 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="sip-education">
                                  <h3 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Education</h3>
-                                <div class="sip-education-deatils">
+                                <div class="sip-education-deatils">                              
                                     <!-- Education Institutes-->
-                                    <div class="sip-education-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                                        <h4>Art & Multimedia From <a href="#">Oxford University</a></h4>
-                                        <div class="sip-eduyear">2005-2008</div>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a 
-                                        page when looking at its layout. The point of using  Lorem Ipsum </p>
-                                    </div>                                
-                                    <!-- Education Institutes-->
-                                    <div class="sip-education-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">
-                                        <h4>Art & Multimedia From <a href="#">Oxford University</a></h4>
-                                        <div class="sip-eduyear">2005-2008</div>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a 
-                                        page when looking at its layout. The point of using  Lorem Ipsum </p>
-                                    </div>                                
-                                    <!-- Education Institutes-->
+                                    {% for ed in education %}
                                     <div class="sip-education-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">
-                                        <h4>Art & Multimedia From <a href="#">Oxford University</a></h4>
-                                        <div class="sip-eduyear">2005-2008</div>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a 
-                                        page when looking at its layout. The point of using L orem Ipsum </p>
+                                        <h4>{{ed.degree}}</br> <a href="#">{{ed.institute}}</a></h4>
+                                        <div class="sip-eduyear">{{ed.year1|date:"Y"}} - {{ed.year2|date:"Y"}}</div>
+                                        <p>{{ed.dept}}</p>
                                     </div>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -283,36 +220,22 @@
                             <div class="sip-work">
                                  <h3>Work Experience</h3>
                                 <div class="sip-experience-deatils">
-                                    <!-- Education Institutes-->
-                                    <div class="sip-work-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">
-                                        <h4>UI/UX Designer <a href="#">IronSketch</a></h4>
-                                        <div class="sip-eduyear">2005-2008</div>
-                                        <span>Responsibility :</span>
-                                        <ul class="work-responsibility">
-                                            <li><i class="fa fa-circle"></i>Validate CSS</li>
-                                            <li><i class="fa fa-circle"></i>Project Management</li>
-                                        </ul>
-                                    </div>                                
-                                    <!-- Education Institutes-->
-                                    <div class="sip-work-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">
-                                        <h4>Art & Multimedia From <a href="#">Oxford University</a></h4>
-                                        <div class="sip-eduyear">2005-2008</div>
-                                        <span>Responsibility :</span>
-                                        <ul class="work-responsibility">
-                                            <li><i class="fa fa-circle"></i>Validate CSS</li>
-                                            <li><i class="fa fa-circle"></i>Project Management</li>
-                                        </ul>
-                                    </div>                                
-                                    <!-- Education Institutes-->
+                                    <!-- Work Experience-->
+                                    {% for work in work %}
                                     <div class="sip-work-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">
-                                        <h4>Art & Multimedia From <a href="#">Oxford University</a></h4>
-                                        <div class="sip-eduyear">2005-2008</div>
+                                        <h4>{{work.position}} <a href="#">{{work.institute}}</a></h4>
+                                        <div class="sip-eduyear">{{work.year1|date:"F Y"}} - {{work.year2|date:"F Y"}}</div>
                                         <span>Responsibility :</span>
                                         <ul class="work-responsibility">
-                                            <li><i class="fa fa-circle"></i>Validate CSS</li>
-                                            <li><i class="fa fa-circle"></i>Project Management</li>
+                                            <li><i class="fa fa-circle"></i>{{work.responsibility1}}</li>
+                                            <li><i class="fa fa-circle"></i>{{work.responsibility2}}</li>
+                                            <li><i class="fa fa-circle"></i>{{work.responsibility3}}</li>
+                                            {% if work.responsibility4 %}
+                                            <li><i class="fa fa-circle"></i>{{work.responsibility4}}</li>
+                                            {% endif %}
                                         </ul>
                                     </div>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -333,156 +256,56 @@
                         <div class="portfolio-nav col-sm-12" id="filter-button">
                             <ul>
                                 <li data-filter="*" class="current wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s"> <span>All Categories</span></li>
-                                <li data-filter=".user-interface" class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s"><span>Web Design</span></li>
-                                <li data-filter=".branding" class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s"><span>Branding</span></li>
-                                <li data-filter=".mockup" class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s"><span>Mockups</span></li>
-                                <li data-filter=".ui" class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s"><span>Photography</span></li>
+                                {% for rp in recent_portfolio %}
+                                <li data-filter=".{% if rp.tag == 'Web development' %}development{% elif rp.tag == 'IU design'%}design{% else %}{{rp.tag}}{%endif%}" class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s"><span>{{rp.tag}}</span></li>
+                                {% endfor %}
                             </ul>
                         </div>
                         <div class="sip-project-gallery col-sm-12 wow fadeInUp" id="project-gallery" data-wow-duration="0.8s" data-wow-delay="0.5s">
                             <div class="portfolioContainer row">
-                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 user-interface">
+                                {% for rp in recent_portfolio %}
+                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 {% if rp.tag == 'Web development' %}development{% elif rp.tag == 'IU design'%}design{% else %}{{rp.tag}}{%endif%}">
                                     <figure>
-                                        <img src="assets/images/portfolio/g1.jpg" alt="img04">
+                                        <img src="{{rp.image.url}}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
-                                            <h5 class="title">Creative Design</h5>
-                                            <span class="sub-title">Photograpy</span>
-                                            <a data-fancybox data-src="#sip"></a>
+                                            <h5 class="title">{{rp.title}}</h5>
+                                            <a data-fancybox data-src="#{{rp.id}}"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
-                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 ui mockup">
-                                    <figure>
-                                        <img src="assets/images/portfolio/g2.png" alt="img04">
-                                        <figcaption class="fig-caption">
-                                            <i class="fa fa-search"></i>
-                                            <h5 class="title">Creative Design</h5>
-                                            <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g2.png" data-fancybox data-src="#sip"></a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 user-interface">
-                                    <figure>
-                                        <img src="assets/images/portfolio/g3.png" alt="img04">
-                                        <figcaption class="fig-caption">
-                                            <i class="fa fa-search"></i>
-                                            <h5 class="title">Creative Design</h5>
-                                            <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g3.png" data-fancybox data-src="#sip"></a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 branding">
-                                    <figure>
-                                        <img src="assets/images/portfolio/g5.png" alt="img04">
-                                        <figcaption class="fig-caption">
-                                            <i class="fa fa-search"></i>
-                                            <h5 class="title">Creative Design</h5>
-                                            <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g5.png" data-fancybox data-src="#sip"></a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 user-interface">
-                                    <figure>
-                                        <img src="assets/images/portfolio/g4.png" alt="img04">
-                                        <figcaption class="fig-caption">
-                                            <i class="fa fa-search"></i>
-                                            <h5 class="title">Creative Design</h5>
-                                            <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g4.png" data-fancybox data-src="#sip"></a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 branding">
-                                    <figure>
-                                        <img src="assets/images/portfolio/g6.png" alt="img04">
-                                        <figcaption class="fig-caption">
-                                            <i class="fa fa-search"></i>
-                                            <h5 class="title">Creative Design</h5>
-                                            <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g6.png" data-fancybox data-src="#sip"></a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 branding">
-                                    <figure>
-                                        <img src="assets/images/portfolio/g8.png" alt="img04">
-                                        <figcaption class="fig-caption">
-                                            <i class="fa fa-search"></i>
-                                            <h5 class="title">Creative Design</h5>
-                                            <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g8.png" data-fancybox data-src="#sip"></a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 ui">
-                                    <figure>
-                                        <img src="assets/images/portfolio/g9.png" alt="img04">
-                                        <figcaption class="fig-caption">
-                                            <i class="fa fa-search"></i>
-                                            <h5 class="title">Creative Design</h5>
-                                            <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g9.png" data-fancybox data-src="#sip"></a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <div class="grid-item col-md-4 col-sm-6 col-xs-12 branding">
-                                    <figure>
-                                        <img src="assets/images/portfolio/g7.jpg" alt="img04">
-                                        <figcaption class="fig-caption">
-                                            <i class="fa fa-search"></i>
-                                            <h5 class="title">Creative Design</h5>
-                                            <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g7.jpg" data-fancybox="gallery"></a>
-                                        </figcaption>
-                                    </figure>
-                                </div>
+                                {% endfor %}
                             </div> <!-- End: .grid .project-gallery -->
                         </div> <!-- End: .grid .project-gallery -->
                     </div> <!-- End: .part -->
                 </div> <!-- End: .row -->
             </div>
-            <div class="sip-portfolio-modal" id="sip">
+            {% for rp in recent_portfolio %}
+            <div class="sip-portfolio-modal" id="{{rp.id}}">
                 <div class="container">
                     <div class="row sip-portfolio-modal-inner">
                         <div class="col-sm-5">
-                            <h2>Wrap - A campanion plugin</h2>
-                            <p>Wrap is a clean and elegant Multipurpose Landing Page Template. 
-                            It will fit perfectly for Startup, Web App or any type of Web Services.
-                            It has 4 background styles with 6 homepage styles. 6 pre-defined color scheme. 
-                            All variations are organized separately so you can use / customize the template very easily.</p>       
-                            
-                            <p>It is a clean and elegant Multipurpose Landing Page Template. 
-                            It will fit perfectly for Startup, Web App or any type of Web Services.
-                            It has 4 background styles with 6 homepage styles. 6 pre-defined color scheme. 
-                            All variations are organized separately so you can use / customize the template very easily.</p>      
+                            <h2>{{rp.title}}</h2>
+                            <p>{{rp.content}}</p>            
                             <div class="sip-about-tag">
                                 <ul>
-                                    <li><span>php</span></li>
-                                    <li><span>html</span></li>
-                                    <li><span>css</span></li>
-                                    <li><span>php</span></li>
-                                    <li><span>wordpress</span></li>
-                                    <li><span>React</span></li>
-                                    <li><span>Javascript</span></li>
+                                    {% for rpt in rptag %}
+                                    <li><span>{{rpt.tag}}</span></li>
+                                    {% endfor %}
+                                
                                 </ul>
                             </div>
                             <a href="#" class="btn btn-fill">Live Demo</a>
                         </div>
                         <div class="col-sm-7">
                             <div class="sip-portfolio-modal-img">
-                                <img src="assets/images/pr-0.jif" alt="" class="img-fluid">
-                                <p>All variations are organized separately so you can use / customize the template very easily.</p>    
-                                <img src="assets/images/pr-1.jif" alt="" class="img-fluid">
-                                <p>All variations are organized separately so you can use / customize the template very easily.</p>     
+                                <img class="img-fluid" src="{{rp.image.url}}" alt="">                             
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </section>
         
          <!--    ********PRICING********    -->
@@ -506,7 +329,7 @@
                                     <li>Game Development</li>
                                     <li>Music Writing</li>
                                 </ul>
-                                <a href="#" class="btn btn-fill">Hire Me</a>
+                                <a href="#sip-contact" class="btn btn-fill">Hire Me</a>
                             </div>  
                         </div>                    
                         <div class="col-sm-12 col-md-4">
@@ -521,7 +344,7 @@
                                     <li>Game Development</li>
                                     <li>Music Writing</li>
                                 </ul>
-                                <a href="#" class="btn btn-fill">Hire Me</a>
+                                <a href="#sip-contact" class="btn btn-fill">Hire Me</a>
                             </div>  
                         </div>
                         <div class="col-sm-12 col-md-4">
@@ -536,7 +359,7 @@
                                     <li>Game Development</li>
                                     <li>Music Writing</li>
                                 </ul>
-                                <a href="#" class="btn btn-fill">Hire Me</a>
+                                <a href="#sip-contact" class="btn btn-fill">Hire Me</a>
                             </div>  
                         </div>
                     </div>
@@ -546,7 +369,7 @@
         
          <!--    ********BLOG********    -->
 
-        <section class="sip-blog" id="sip-blog">
+        <!-- <section class="sip-blog" id="sip-blog">
             <div class="container">
                 <div class="row section-separator">
                     <div class="col-sm-12 section-title wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
@@ -602,7 +425,7 @@
                     </div>
                 </div>
             </div>
-        </section>        
+        </section>   -->      
         
          <!--    ********TESTIMONIAL********    -->
 
@@ -765,7 +588,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="text-left text-xs-center">
-                                        <p>All right reserved Siful Islam @ 2018</p>
+                                        <p>All right reserved Siful Islam @ {% now 'Y' %}</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
