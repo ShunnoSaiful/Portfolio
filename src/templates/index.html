@@ -437,68 +437,18 @@
                             <h3>Client Reviews</h3>
                         </div>
                         <div class="col-sm-12 wow fadeInUp" id="sip-client-review" data-wow-duration="0.8s" data-wow-delay="0.3s">
+                            {% for cr in reviews %}
                             <div class="each-client-item">
                                 <div class="sip-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
-                                    <p>Absolute wonderful ! I am completely
-                                    blown away.The very best.I was amazed
-                                    at the quality</p>
-                                    <h4>John Mike</h4>
-                                    <span>CEO, Author.Inc</span>
+                                    <img src="{{cr.image.url}}" alt="" class="img-fluid">
+                                    <p>{{cr.review}}</p>
+                                    <h4>{{cr.name}}</h4>
+                                    <span>{{cr.company}}</span>
                                 </div>
                             </div>
-                            <div class="each-client-item">
-                                <div class="sip-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
-                                    <p>Absolute wonderful ! I am completely
-                                    blown away.The very best.I was amazed
-                                    at the quality</p>
-                                    <h4>John Mike</h4>
-                                    <span>CEO, Author.Inc</span>
-                                </div>
-                            </div>                    
+                            {% endfor %}                  
                             
-                            <div class="each-client-item">
-                                <div class="sip-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
-                                    <p>Absolute wonderful ! I am completely
-                                    blown away.The very best.I was amazed
-                                    at the quality</p>
-                                    <h4>John Mike</h4>
-                                    <span>CEO, Author.Inc</span>
-                                </div>
-                            </div>
-                            <div class="each-client-item">
-                                <div class="sip-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
-                                    <p>Absolute wonderful ! I am completely
-                                    blown away.The very best.I was amazed
-                                    at the quality</p>
-                                    <h4>John Mike</h4>
-                                    <span>CEO, Author.Inc</span>
-                                </div>
-                            </div>
-                            <div class="each-client-item">
-                                <div class="sip-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
-                                    <p>Absolute wonderful ! I am completely
-                                    blown away.The very best.I was amazed
-                                    at the quality</p>
-                                    <h4>John Mike</h4>
-                                    <span>CEO, Author.Inc</span>
-                                </div>
-                            </div>                    
                             
-                            <div class="each-client-item">
-                                <div class="sip-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
-                                    <p>Absolute wonderful ! I am completely
-                                    blown away.The very best.I was amazed
-                                    at the quality</p>
-                                    <h4>John Mike</h4>
-                                    <span>CEO, Author.Inc</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -516,6 +466,7 @@
                         </div>
                         <div class="col-sm-12 sip-footer-address">
                             <div class="row">
+                                {% for home in home %}
                                 <div class="col-sm-12 col-md-4">
                                     <div class="sip-address-footer-item dark-bg shadow-1 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
                                         <div class="each-icon">
@@ -524,8 +475,7 @@
                                         <div class="each-info">
                                             <h4>Address</h4>
                                             <address>
-                                                5th Avenue, 34th floor, <br> 
-                                                 New york
+                                                {{home.address}}
                                             </address>
                                         </div>
                                     </div>
@@ -537,8 +487,9 @@
                                         </div>
                                         <div class="each-info">
                                             <h4>Email</h4>
-                                            <a href="mailto:yourmail@email.com">yourmail@email.com</a><br>
-                                            <a href="mailto:yourmail@email.com">yourmail@email.com</a>
+                                            <a href="mailto:yourmail@email.com">{{home.email}}</a><br>
+                                            <a href="mailto:15303054@iubat.edu">15303054@iubat.edu</a>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -549,11 +500,16 @@
                                         </div>
                                         <div class="each-info">
                                             <h4>Phone</h4>
-                                            <a href="callto:(880)-8976-987">(880)-8976-987</a><br>
-                                            <a href="callto:(880)-8976-987">(880)-8976-987</a>
+                                            <a href="callto:{{home.contact_no}}">
+                                                {{home.contact_no}}
+                                            </a><br>
+                                            <a href="callto:+880 1672-895393">
+                                                +880 1672-895393
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">

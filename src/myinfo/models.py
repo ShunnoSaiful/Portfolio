@@ -21,7 +21,8 @@ class Home(models.Model):
     myname      = models.CharField(max_length=120)
     my_title    = models.CharField(max_length=120, null=True, blank=True)
     email       = models.EmailField(null=True, blank=True)
-    contact_no  = models.CharField(max_length=120, null=True, blank=True)
+    phone_no    = models.CharField(max_length=120, null=True, blank=True)
+    contact     = models.CharField(max_length=120, null=True, blank=True)
     address     = models.CharField(max_length=120, null=True, blank=True)
     social_link = models.URLField(null=True, blank=True)
 
