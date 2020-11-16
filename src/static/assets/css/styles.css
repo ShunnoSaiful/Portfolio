@@ -62,6 +62,7 @@
 
 
 -------------------------------------------------------------------*/
+
 /*
 ================
  VARIABLES
@@ -1427,7 +1428,7 @@ li .fa {
 }
 
 .home-padding {
-  padding: 180px 0;
+  padding: 160px 0 0 60px;
 }
 
 /*
@@ -1632,7 +1633,9 @@ li .fa {
 .sip-about .sip-about-inner {
   padding-left: 50px;
 }
-
+.sip-about .row .section-separator{
+  padding-top: 150px!important;
+}
 .sip-about .sip-about-inner h2 {
   margin-bottom: 20px;
   margin-top: 20px;
@@ -1798,7 +1801,16 @@ li .fa {
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.5);
 }
-
+.progressBar {
+  margin: 20px;
+  width: 100px;
+  height: 100px;
+}
+.progressBar p{
+  position: absolute;
+  top: 58px;
+  left: 71px;
+}
 .candidatos .parcial .percentagem {
   position: absolute;
   top: 0;
@@ -2215,6 +2227,7 @@ li .fa {
        TESTIMONIAL
     =================
 */
+
 .sip-testimonial.sip-single-testimonial .sip-client-item p {
   padding: 0 160px;
   margin: 60px 0;

@@ -31,6 +31,7 @@
 
 
         <script src='{% static "assets/plugins/js/jquery.min.js"%}'></script>
+        <script src='{% static "assets/plugins/js/slick.min.js"%}'></script>
         <script src='{% static "assets/plugins/js/popper.min.js"%}'></script>
         <script src='{% static "assets/plugins/js/bootstrap.min.js"%}'></script>
         <script src='{% static "assets/plugins/js/owl.carousel.js"%}'></script>
@@ -45,7 +46,8 @@
         <script src='{% static "http://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=AIzaSyCRP2E3BhaVKYs7BvNytBNumU0MBmjhhxc"%}'></script>
         <script src='{% static "assets/js/map-init.js"%}'></script>
         <script src='{% static "assets/js/custom-scripts.js"%}'></script>
-
+        {% block script %}
+        {% endblock script %}
 
 
     </body>

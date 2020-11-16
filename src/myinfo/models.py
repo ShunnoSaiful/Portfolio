@@ -38,6 +38,7 @@ class Home(models.Model):
 class SocialLink(models.Model):
     home        = models.ForeignKey(Home, related_name='link', on_delete=models.CASCADE)
     social_link = models.URLField(null=True, blank=True)
+    title        = models.CharField(max_length=120, null=True, blank=True)
 
     def __str__(self):
         return str(self.social_link)
@@ -74,7 +75,7 @@ class TechnicalSkill(models.Model):
 
 class ProfessionalSkill(models.Model):
     skill      = models.CharField(max_length=120, null=True, blank=True)
-    image      = models.FileField(upload_to='skill/', null=True, blank=True)
+    percentage = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     def __str__(self):
         return str(self.skill)
 
@@ -132,20 +133,10 @@ class RPTag(models.Model):
 class ClientReviews(models.Model):
     review  = models.TextField(null=True, blank=True)
     name    = models.CharField(max_length=120, null=True, blank=True)
-    image   = models.ImageField(upload_to='Client/', null=True, blank=True)
+    image   = models.FileField(upload_to='Client/', null=True, blank=True)
     company = models.CharField(max_length=120, null=True, blank=True)
 
 
     def __str__(self):
         return str(self.review)
-
-
-
-def one_profile_creator(sender, instance, *args, **kwargs):
-    if instance.myname:
-        instance = Home.objects.filter(myname=self.myname).count()
-        if instance > 1:
-            raise ValidationError("Your user plan does not support more than {} posts".format(create_user))
-
-pre_save.connect(one_profile_creator, sender=Home)
 

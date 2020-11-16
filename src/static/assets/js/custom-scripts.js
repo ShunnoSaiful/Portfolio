@@ -100,7 +100,7 @@
           scrollSpeed: 750,
           scrollThreshold: 0.5,
       });
-    
+     // Number from 0.0 to 1.0
     /*
     |=================
     | fancybox
@@ -172,7 +172,7 @@
         loop: false,
         responsiveClass: true,
         nav: true,
-        autoplay: false,
+        autoplay: true,
         smartSpeed: 450,
         stopOnHover : true,
         animateIn: 'slideInRight',
