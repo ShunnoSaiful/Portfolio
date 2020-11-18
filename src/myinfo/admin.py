@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Home, SocialLink, Tag, About, TechnicalSkill, ProfessionalSkill, Education, Work, RecentPortfolio, RPTag, ClientReviews
+from .models import Home, SocialLink, Tag, Cat, About, TechnicalSkill, ProfessionalSkill, Education, Work, RecentPortfolio, RPTag, ClientReviews
 
 
 # Register your models here.
@@ -29,6 +29,8 @@ class RecentPortfolioAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Home, HomeAdmin)
+admin.site.register(Cat
+)
 admin.site.register(About, AboutAdmin)
 admin.site.register(TechnicalSkill)
 admin.site.register(ProfessionalSkill)

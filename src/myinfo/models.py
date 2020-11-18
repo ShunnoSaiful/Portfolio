@@ -38,10 +38,12 @@ class Home(models.Model):
 class SocialLink(models.Model):
     home        = models.ForeignKey(Home, related_name='link', on_delete=models.CASCADE)
     social_link = models.URLField(null=True, blank=True)
-    title        = models.CharField(max_length=120, null=True, blank=True)
+    title       = models.CharField(max_length=120, null=True, blank=True)
 
     def __str__(self):
         return str(self.social_link)
+
+
 
 
 class About(models.Model):
@@ -109,7 +111,15 @@ class Work(models.Model):
         return str(self.position)
 
 
+class Cat(models.Model):
+    cat   = models.CharField(max_length=120, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.cat)
+
+
 class RecentPortfolio(models.Model):
+    category       = models.ForeignKey(Cat, on_delete=models.CASCADE, null=True, blank=True)
     title          = models.CharField(max_length=120, null=True, blank=True)
     content        = models.TextField(null=True, blank=True)
     image          = models.ImageField(upload_to='portfolio/', null=True, blank=True)
